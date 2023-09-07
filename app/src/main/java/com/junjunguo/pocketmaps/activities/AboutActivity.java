@@ -18,7 +18,8 @@ import com.junjunguo.pocketmaps.R;
 public class AboutActivity extends AppCompatActivity {
 
 
-    //commit
+    //sample commit
+    //muthupandi
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
