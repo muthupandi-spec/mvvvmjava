@@ -1,36 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".activities.MainActivity">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/statusBarBackgroundMain"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_maps_recycler_view"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_main"
+        android:visibility="gone"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/statusBarBackgroundMain"
-        android:paddingTop="16dp"
-        android:background="@color/my_icons"
-        android:scrollbars="vertical"/>
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:hint="enter email address"
+            android:inputType="textEmailAddress"
+            android:layout_height="45dp"/>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:hint="enter your password"
+            android:inputType="numberPassword"
+            android:layout_height="45dp"/>
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="login"/>
+
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/my_maps_add_fab"
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
         android:visibility="gone"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/fab_margin_default"
-        android:layout_marginBottom="@dimen/fab_margin_default"
-        android:layout_marginRight="@dimen/fab_margin_default"
-        android:layout_marginLeft="@dimen/fab_margin_default"
-        android:src="@drawable/ic_add_white_24dp"
-        />
-</RelativeLayout>
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
